@@ -1,4 +1,4 @@
-#Ben Kotrc, RideScout/Moovel NA
+#Ben Kotrc
 #1/26/2016
 #This script takes an expanded GTFS file and generates a new file,
 #route_shapes.json, that contains one geojson MultiLineString for each
