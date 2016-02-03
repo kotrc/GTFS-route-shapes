@@ -26,5 +26,5 @@ This script addresses both of these problems, by:
 An expanded GTFS archive. Run the script from within the directory containing the `csv` files of the archive. 
 
 ### Output
-A geoJSON file named `route_shapes.json`, containing a `FeatureCollection` object with the same number of `Feature`s as there are unique `route_id`s in the supplied `routes.txt` file. Each `Feature` contains a `MultiLineString`, which traces the shape of the route, and a `route_id` property. 
+A geoJSON file named `route_shapes.json`, containing a `FeatureCollection` object with the same number of `Feature`s as there are unique `route_id`s in the supplied `routes.txt` file. Each `Feature` contains a `MultiLineString` or `LineString`, which traces the shape of the route, and a `route_id` property. 
 
