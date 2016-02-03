@@ -17,7 +17,9 @@ In developing web and mobile applications with public transit data, we often wan
 
 ### What this script does
 This script addresses both of these problems, by:
+
 1. Removing any overlap in control points from shapes (lines) describing the same route, and
+
 2. Downsampling those to a specified tolerance (I've set it to about 30m, or the approx. width of Mass. Ave., a main thoroughfare in Boston). 
 
 ### Input
