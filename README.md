@@ -28,3 +28,41 @@ An expanded GTFS archive. Run the script from within the directory containing th
 ### Output
 A geoJSON file named `route_shapes.json`, containing a `FeatureCollection` object with the same number of `Feature`s as there are unique `route_id`s in the supplied `routes.txt` file. Each `Feature` contains a `MultiLineString` or `LineString`, which traces the shape of the route, and a `route_id` property. 
 
+For example:
+    {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [
+                -70.991534,
+                42.413641
+              ],
+              [
+                -70.992021,
+                42.4127
+              ],
+              ...
+            ]
+          },
+          "type": "Feature",
+          "properties": {
+            "route_id": "Blue"
+          }
+        },
+        {
+          "geometry": {
+            "type": "MultiLineString",
+            "coordinates": 
+            ...
+          },
+          "type": "Feature",
+          "properties": {
+            "route_id": "Green-D"
+          }
+        },
+        ...
+      ]
+    }
