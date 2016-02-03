@@ -9,8 +9,20 @@ In developing web and mobile applications with public transit data, we often wan
     ![Map of the MBTA Red Line Braintree branch](/readme-images/Braintree.png?raw=true "Braintree branch")
     ![Map of the MBTA Red Line Ashmont branch](/readme-images/Ashmont.png?raw=true "Ashmont branch")
 
-    We can overplot both lines, but then we're dealing with redundant points between the northern terminus (Alewife station) and the branch point. Not a huge deal if there's just two shapes, but for many GTFS archives, a route has _many_ such shapes — the whole shapes.txt table for the MBTA GTFS archive is >17 MB. We really want to store the minimal collection of non-overlapping lines that describe the shape of the whole route:
+    We can overplot both lines, but then we're dealing with redundant points between the northern terminus (Alewife station) and the branch point. Not a huge deal if there's just two shapes, but for many GTFS archives, a route has _many_ such shapes — the whole `shapes.txt` file for the MBTA GTFS archive is >17 MB. We really want to store the minimal collection of non-overlapping lines that describe the shape of the whole route:
 
     ![Map of both MBTA Red Line branches](/readme-images/Both.png?raw=true "Both branches")
 
+2. The lines stored in the shapes.txt table of GTFS archives are often of unnecessarily high resolution for many applications (e.g. overview maps of transit routes), which leads to those large file sizes. We often want to store a downsampled set of points that still adequately describes the shape of the route.
+
+### What this script does
+This script addresses both of these problems, by:
+1. Removing any overlap in control points from shapes (lines) describing the same route, and
+2. Downsampling those to a specified tolerance (I've set it to about 30m, or the approx. width of Mass. Ave., a main thoroughfare in Boston). 
+
+### Input
+An expanded GTFS archive. Run the script from within the directory containing the `csv` files of the archive. 
+
+### Output
+A geoJSON file named `route_shapes.json`, containing a `FeatureCollection` object with the same number of `Feature`s as there are unique `route_id`s in the supplied `routes.txt` file. Each `Feature` contains a `MultiLineString`, which traces the shape of the route, and a `route_id` property. 
 
