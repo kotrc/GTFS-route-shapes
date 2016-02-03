@@ -29,7 +29,7 @@ An expanded GTFS archive. Run the script from within the directory containing th
 A geoJSON file named `route_shapes.json`, containing a `FeatureCollection` object with the same number of `Feature`s as there are unique `route_id`s in the supplied `routes.txt` file. Each `Feature` contains a `MultiLineString` or `LineString`, which traces the shape of the route, and a `route_id` property. 
 
 For example:
-
+```json
     {
       "type": "FeatureCollection",
       "features": [
@@ -67,3 +67,4 @@ For example:
         ...
       ]
     }
+```
